@@ -16,37 +16,40 @@ Efficient Character-by-Character Copying: Employs a while loop to extract charac
 Usage:
 
 C
-#include "file.h" // Assuming "file.h" contains necessary header declarations
+{
 
-int main() {
+      #include "file.h" // Assuming "file.h" contains necessary header declarations
+
+      int main() {
    
-    const char* sourceFile = "source.txt";
-    const char* destinationFile = "copy.txt";
+          const char* sourceFile = "source.txt";
+          const char* destinationFile = "copy.txt";
     
-    int copyStatus = fcopy(sourceFile, destinationFile);
+          int copyStatus = fcopy(sourceFile, destinationFile);
 
-    if (copyStatus == 0) {
-        printf("File copied successfully!\n");
-    } else {
-        switch (copyStatus) {
-            case 1:
-                printf("Error: Could not open source file.\n");
-                break;
-            case -1:
-                printf("Error: Could not open destination file.\n");
-                break;
-            case 2:
-                printf("Error: Could not close destination file.\n");
-                break;
-            case -2:
-                printf("Error: Could not close source file.\n");
-                break;
-            default:
-                printf("Unknown error occurred during file copy.\n");
-        }
-    }
-
-    return 0;
+          if (copyStatus == 0) {
+              printf("File copied successfully!\n");
+          } else {
+              switch (copyStatus) {
+                  case 1:
+                      printf("Error: Could not open source file.\n");
+                      break;
+                  case -1:
+                      printf("Error: Could not open destination file.\n");
+                      break;
+                  case 2:
+                      printf("Error: Could not close destination file.\n");
+                      break;
+                  case -2:
+                      printf("Error: Could not close source file.\n");
+                      break;
+                  default:
+                      printf("Unknown error occurred during file copy.\n");
+              }
+            }
+      
+          return 0;
+          }
 }
 
 Considerations:
